@@ -19,8 +19,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /**
    * ## Polymer web component dom template adaptive/responsive to element size
    *
-   * It works simillar to media queries but adapt to element not screen size.
-   * It's based on `dom-if` implementation toggled by IronResizableBehavior event
+   * Polymer web component dom template adaptive/responsive to element size.
+   * It works similar to media queries but adapt to element not screen size.
+   * It's based on [dom-if](https://www.polymer-project.org/1.0/api/#dom-if)
+   * implementation toggled by [IronResizableBehavior](https://elements.polymer-project.org/elements/iron-resizable-behavior)
    *
    * Stamps the template if the `minWidth`,`minHeight`,`maxWidth`,`maxHeight`
    * properties are met parents size.
@@ -39,26 +41,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    *
    * - adaptive to width
    *```html
-   * <dom-adaptive max-width="700">
-   *   shown if parent width is smaller than 700px
-   * </dom-adaptive>
-   * <dom-adaptive min-width="700">
-   *   shown if parent width is 700px or larger
-   * </dom-adaptive>
+   *   <dom-adaptive max-width="700">
+   *     shown if parent width is smaller than 700px
+   *   </dom-adaptive>
+   *   <dom-adaptive min-width="700">
+   *     shown if parent width is 700px or larger
+   *   </dom-adaptive>
    *```
    * - combinations
    *```html
-   * <dom-adaptive max-width="300" max-height="300">
-   *   small view
-   * </dom-adaptive>
-   * <dom-adaptive min-width="300" min-height="300" max-width="500" max-height="500">
-   *   medium view
-   * </dom-adaptive>
-   * <dom-adaptive min-width="500" min-height="500">
-   *   large view
-   * </dom-adaptive>
+   *   <dom-adaptive max-width="300" max-height="300">
+   *     small view
+   *   </dom-adaptive>
+   *   <dom-adaptive min-width="300" min-height="300" max-width="500" max-height="500">
+   *     medium view
+   *   </dom-adaptive>
+   *   <dom-adaptive min-width="500" min-height="500">
+   *     large view
+   *   </dom-adaptive>
    *```
    *
+   * ## Note
+   * If dom-adaptive won't work as it is expected, It's because it didn't get
+   * `resize` event properly. Host element must call `notifyResize` manually
+   * Implementing IronResizableBehavior. It's by Polymer resize event design.
+   * ref : [PolymerElements/iron-pages#13](https://github.com/PolymerElements/iron-pages/issues/13)
+   *
+   * In case you want `dom-adaptive` out of Polymer env, You can prepare
+   * yourself other libs like [javascript-detect-element-resize](https://github.com/sdecima/javascript-detect-element-resize),
+   * [jQuery-mutate](http://www.jqui.net/jquery-projects/jquery-mutate-official/),
+   * etc, then call `notifyResize` manually.
    *
    * @demo demo/index.html simple width switch
    *
