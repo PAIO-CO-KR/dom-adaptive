@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>dom-template Demo</title>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../dom-adaptive.html">
+    <style>
+      .cap {
+        position: absolute;
+        top: 10%;
+        width: 99%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 80%;
+        left: 10%;
+        top: 20%;
+        position: absolute;
+        border: 3px solid #2166ad;
+      }
+      .inner-box {
+        position: relative;
+        background-color: #9f6fad;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+        text-align: center;
+      }
+      .b1 {
+        width: 280px;
+      }
+      .b2 {
+        width: 380px;
+      }
+      .b3 {
+        width: 480px;
+      }
+      .b4 {
+        width: 580px;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="cap"></div>
+  <div class="box">
+    <template is="dom-adaptive" max-width="400">
+      <div class="inner-box b1">
+        width <= 400px<br />
+        &lt;template is="dom-adaptive" max-width="400"&gt;
+      </div>
+    </template>
+    <template is="dom-adaptive" min-width="400" max-width="500">
+      <div class="inner-box b2">
+        400px &lt; width &lt;= 500px<br />
+        &lt;template is="dom-adaptive" min-width="400" max-width="500"&gt;
+      </div>
+    </template>
+    <template is="dom-adaptive" min-width="500" max-width="600">
+      <div class="inner-box b3">
+        500px &lt; width &lt;= 600px<br />
+        &lt;template is="dom-adaptive" min-width="500" max-width="600"&gt;
+      </div>
+    </template>
+    <template is="dom-adaptive" min-width="600">
+      <div class="inner-box b4">
+        600px &lt; width<br />
+        &lt;template is="dom-adaptive" max-width="600"&gt;
+      </div>
+    </template>
+  </div>
+
+  <script>
+    var updateCap = function () {
+      var box = document.getElementsByClassName('box')[0];
+      document.getElementsByClassName('cap')[0].innerText =
+              'blue box width:' + box.offsetWidth + 'px';
+    };
+    window.addEventListener('load', updateCap);
+    window.addEventListener('resize', updateCap);
+  </script>
+
+  </body>
+</html>

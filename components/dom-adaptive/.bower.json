@@ -1,0 +1,46 @@
+{
+  "name": "dom-adaptive",
+  "authors": [
+    "PAIO co.,ltd."
+  ],
+  "description": "Polymer web component dom template adaptive/responsive to element size",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "dom",
+    "template",
+    "adaptive",
+    "responsive",
+    "size",
+    "width",
+    "height",
+    "media",
+    "query"
+  ],
+  "main": "seed-element.html",
+  "license": "https://raw.githubusercontent.com/PAIO-CO-KR/dom-adaptive/master/LICENSE",
+  "homepage": "https://github.com/PAIO-CO-KR/dom-adaptive/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-resizable-behavior": "^1.0.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "0d00c8453b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "0d00c8453ba0436416d9f7a71002bc3b0a49b431"
+  },
+  "_source": "git://github.com/PAIO-CO-KR/dom-adaptive.git",
+  "_target": "master",
+  "_originalSource": "PAIO-CO-KR/dom-adaptive",
+  "_direct": true
+}
